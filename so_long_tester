@@ -1,0 +1,15 @@
+#!/bin/bash
+
+for i in {1..49}; do
+    map="maps/error${i}.ber"
+    echo "Exécution de ./so_long avec la carte $map"
+    valgrind --leak-check=full ./so_long "$map" &> valgrind_output.txt
+	./so_long "$map"
+    if ! grep -q "ERROR SUMMARY: 0 errors" valgrind_output.txt; then
+        echo "Erreur détectée avec la carte $map"
+    else
+        echo "Aucune erreur détectée avec la carte $map"
+    fi
+    echo "Test terminé pour $map"
+    echo "-------------------------"
+done
