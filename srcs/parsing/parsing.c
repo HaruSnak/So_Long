@@ -6,7 +6,7 @@
 /*   By: shmoreno <shmoreno@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 14:09:27 by shmoreno          #+#    #+#             */
-/*   Updated: 2024/07/24 15:01:42 by shmoreno         ###   ########.fr       */
+/*   Updated: 2024/07/28 12:55:51 by shmoreno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ int	ft_parse_base(int argc, char **argv, t_map *map)
 		ft_printf("Error: Invalid number of arguments\n");
 		return (EXIT_FAILURE);
 	}
-	if (ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == NULL)
+	if (ft_strncmp(&argv[1][ft_strlen(argv[1]) - 4], ".ber", 4) != 0)
 	{
 		ft_printf("Error: Invalid file extension\n");
 		return (EXIT_FAILURE);
